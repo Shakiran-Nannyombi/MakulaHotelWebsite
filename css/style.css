@@ -180,7 +180,7 @@ p {
   position: relative;
   height: 600px;
   overflow: hidden;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 #showcase #video-bg {
@@ -236,28 +236,76 @@ p {
 }
 
 /* Home Info */
-#home-info {
-  height: 400px;
+/* Home Info & Hotel View Shared Styles */
+#home-info,
+#hotel-view {
+  display: flex;
+  min-height: 400px;
 }
 
 #home-info .info-img {
-  float: left;
-  width: 50%;
+  flex: 1;
   background: url('../img/lounge.jpeg') no-repeat center center/cover;
-  min-height: 100%;
+}
+
+#hotel-view .info-img {
+  flex: 1;
+  background: url('../img/hotelview.jpeg') no-repeat center center/cover;
+  order: 2;
+  /* Image on right for hotel-view */
+}
+
+#home-info .info-content,
+#hotel-view .info-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
 }
 
 #home-info .info-content {
-  float: right;
-  width: 50%;
-  height: 100%;
-  text-align: center;
-  padding: 50px 30px;
-  overflow: hidden;
+  background: #8B5CF6;
+  color: #fff;
 }
 
-#home-info .info-content p {
+#hotel-view .info-content {
+  background: #312E81;
+  color: #fff;
+}
+
+#home-info .info-content h2,
+#hotel-view .info-content h2 {
+  padding-bottom: 20px;
+}
+
+#home-info .info-content h2 {
+  color: #fff;
+}
+
+#hotel-view .info-content h2 {
+  color: #fff;
+}
+
+#home-info .info-content p,
+#hotel-view .info-content p {
   padding-bottom: 30px;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+
+  #home-info,
+  #hotel-view {
+    flex-direction: column;
+  }
+
+  #hotel-view .info-img {
+    order: 0;
+    min-height: 250px;
+  }
 }
 
 /* Features */
@@ -274,7 +322,7 @@ p {
 
 /* About Info */
 #about-info {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 #about-info .container {
@@ -472,6 +520,11 @@ p {
 }
 
 /* Contact Form */
+/* Contact Form */
+#contact-form {
+  margin-top: 60px;
+}
+
 #contact-form .form-group {
   margin-bottom: 20px;
 }
@@ -498,9 +551,64 @@ p {
   border-color: #000;
 }
 
+/* Contact Info */
+#contact-info .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  /* Widen container for this section */
+}
+
+#contact-info .box {
+  background: #fff;
+  color: #333;
+  padding: 50px 30px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  /* box-shadow removed */
+  word-break: break-word;
+  /* Fix for inherited .box width */
+  width: 100%;
+  float: none;
+}
+
+#contact-info .box:hover {
+  background: #f9f9f9;
+}
+
+#contact-info .box i {
+  color: #312E81;
+  margin-bottom: 25px;
+  font-size: 3.5em;
+  /* Larger icon */
+}
+
+#contact-info .box h3 {
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #312E81;
+  /* Thicker underline */
+  display: inline-block;
+  font-size: 1.5rem;
+  /* Larger heading */
+}
+
+#contact-info .box p {
+  font-size: 1.2rem;
+  /* Larger text */
+}
+
+@media(max-width: 768px) {
+  #contact-info .container {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Footer */
 #main-footer {
-  background: #8B5CF6;
+  background: #312E81;
   color: #fff;
   padding: 40px 0 20px;
 }
@@ -513,7 +621,7 @@ p {
 }
 
 .footer-section h3 {
-  color: #000;
+  color: #fff;
   font-size: 18px;
   margin-bottom: 15px;
   padding-bottom: 10px;
@@ -526,7 +634,7 @@ p {
 
 .footer-section p i {
   margin-right: 8px;
-  color: #000;
+  color: #8B5CF6;
 }
 
 .footer-section ul {
@@ -543,7 +651,7 @@ p {
 }
 
 .footer-section ul li a:hover {
-  color: #000;
+  color: #8B5CF6;
 }
 
 .social-links {
@@ -556,13 +664,13 @@ p {
 }
 
 .social-links a:hover {
-  color: #000;
+  color: #8B5CF6;
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
-  border-top: 1px solid #6366F1;
+  border-top: 1px solid #4338CA;
 }
 
 .footer-bottom p {
